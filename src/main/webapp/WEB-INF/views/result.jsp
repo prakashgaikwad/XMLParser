@@ -19,12 +19,19 @@
 
     <div class="main">
         <c:if test="${empty error}">
-            no error!
+            <spring:message code="max_client"/> ${result.maxTotalOrdersAmountCustomer.name} (id ${result.maxTotalOrdersAmountCustomer.id})<br>
+            <spring:message code="total_orders"/> ${result.totalOrders}<br>
+            <spring:message code="total_amount"/> ${result.totalAmount}<br>
+            <spring:message code="max_order"/> ${result.maxOrderAmount}<br>
+            <spring:message code="min_order"/> ${result.minOrderAmount}<br>
+            <spring:message code="avr_order"/> ${result.averageOrderAmount}<br>
         </c:if>
 
-        <form action="/" method="post">
-            <input type="submit" value="<spring:message code="one_more"/>" name="submit">
-        </form>
+        <p>
+            <form action="/" method="post">
+                <input type="submit" value="<spring:message code="one_more"/>" name="submit">
+            </form>
+        </p>
     </div>
 
 </body>

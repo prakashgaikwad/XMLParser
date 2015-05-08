@@ -10,6 +10,7 @@
     border: 1px dotted;
     padding-top: 30px;
     line-height: 3;
+    display: table;
 }
 .optional {
     font-weight: lighter;

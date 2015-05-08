@@ -1,6 +1,5 @@
 package com.sqshq.controllers;
 
-import com.sqshq.models.lists.Customers;
 import com.sqshq.service.XMLProcessor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,11 +19,8 @@ public class ParserController {
     @Autowired
     XMLValidator validator;
 
-    @Autowired
-    XMLProcessor processor;
-
-    @InitBinder
-    private void initBinder(WebDataBinder binder) {
+    @InitBinder("file")
+    public void initBinder(WebDataBinder binder) {
         binder.setValidator(validator);
     }
 
@@ -42,10 +38,12 @@ public class ParserController {
         }
 
         try {
-            Customers customers = processor.parse(file);
-            model.addAttribute("error", result.getFieldError().getCode());
+            XMLProcessor processor = new XMLProcessor(file);
+            processor.parse();
+
+            model.put("result", processor);
+
         } catch (Exception e) {
-            e.printStackTrace();
             model.addAttribute("error", "smth_wrong");
         }
 
