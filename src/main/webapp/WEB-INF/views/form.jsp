@@ -6,7 +6,7 @@
 <html>
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
     <title>XML parser</title>
 </head>
 <body>
@@ -24,8 +24,17 @@
                     <td><input type="file" name="file"></td>
                 </tr>
                 <tr>
+                    <td><spring:message code="choose_action"/></td>
+                    <td>
+                        <select onchange="hideOptions();" id="action" name="action">
+                            <option value="statistics"><spring:message code="statistics"/></option>
+                            <option value="customers"><spring:message code="customers"/></option>
+                        </select>
+                    </td>
+                </tr>
+                <tr id="amount">
                     <td><spring:message code="min_amount"/></td>
-                    <td><input type="number" min="0" value="0" name="min_amount"></td>
+                    <td><input type="number" min="0" value="0" name="amount"></td>
                 </tr>
             </table>
             <p>
@@ -33,5 +42,6 @@
             </p>
         </form>
     </div>
+    <script src="/assets/js/script.js"></script>
 </body>
 </html>

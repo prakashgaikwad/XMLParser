@@ -3,6 +3,7 @@ package com.sqshq.models;
 
 import com.sqshq.models.lists.Orders;
 
+import java.math.BigDecimal;
 import java.math.BigInteger;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -48,6 +49,14 @@ public class Customer {
 
     public void setOrders(Orders value) {
         this.orders = value;
+    }
+
+    public BigDecimal getOrdersAmount() {
+        return this.orders.getTotalOrdersAmount();
+    }
+
+    public int getNumberOfOrders() {
+        return this.orders.getOrder().size();
     }
 
 }

@@ -11,7 +11,10 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.sqshq.models.XMLFile;
 import com.sqshq.service.XMLValidator;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import java.math.BigDecimal;
 
 @Controller
 public class ParserController {
@@ -19,7 +22,7 @@ public class ParserController {
     @Autowired
     XMLValidator validator;
 
-    @InitBinder("file")
+    @InitBinder("XMLFile")
     public void initBinder(WebDataBinder binder) {
         binder.setValidator(validator);
     }
@@ -29,8 +32,9 @@ public class ParserController {
 		return "form";
 	}
 
-    @RequestMapping("/process")
-    public String processForm(ModelMap model, @Validated XMLFile file, BindingResult result) {
+    @RequestMapping(value = "/process", method = RequestMethod.POST)
+    public String processForm(ModelMap model, @RequestParam("action") String action, @RequestParam("amount") String amount,
+                              @Validated XMLFile file, BindingResult result) {
 
         if (result.hasErrors()) {
             model.addAttribute("error", result.getFieldError().getCode());
@@ -39,8 +43,14 @@ public class ParserController {
 
         try {
             XMLProcessor processor = new XMLProcessor(file);
-            processor.parse();
 
+            if (action.equals("customers")) {
+                processor.selectCustomers(BigDecimal.valueOf(Double.valueOf(amount)));
+            } else {
+                processor.calculateStatistics();
+            }
+
+            model.addAttribute("action", action);
             model.put("result", processor);
 
         } catch (Exception e) {

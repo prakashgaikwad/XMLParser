@@ -3,12 +3,9 @@ package com.sqshq.models;
 
 import com.sqshq.models.lists.Positions;
 
+import java.math.BigDecimal;
 import java.math.BigInteger;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.*;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
@@ -40,4 +37,7 @@ public class Order {
         this.positions = value;
     }
 
+    public BigDecimal getOrderAmount() {
+        return this.positions.getTotalPositionsAmount();
+    }
 }

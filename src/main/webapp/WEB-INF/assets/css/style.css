@@ -1,20 +1,25 @@
-.main {
+.main, .error {
     position: absolute;
     font-family: "Arial";
     text-align: center;
     font-weight: bold;
     font-size: 12px;
-    width: 550px; height: 150px;
+    width: 550px; min-height: 80px;
     left:0; right:0; top:0; bottom: 0;
     margin: auto;
     border: 1px dotted;
     padding-top: 30px;
-    line-height: 3;
+    line-height: 2.2;
     display: table;
+    margin-top: 20%;
 }
-.optional {
-    font-weight: lighter;
-    font-style: italic;
+.error {
+    border: 0px;
+    margin-top: 10%;
+    color: gray;
+}
+#amount {
+    visibility: hidden;
 }
 table {
     text-align: left;
@@ -28,6 +33,6 @@ td {
 tr {
     height: 40px;
 }
-input[type="number"] {
-    width: 120px;
+input[type="number"], select {
+    width: 180px;
 }

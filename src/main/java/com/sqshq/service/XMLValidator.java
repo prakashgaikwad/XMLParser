@@ -1,10 +1,18 @@
 package com.sqshq.service;
 
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.validation.Errors;
-import org.springframework.validation.Validator;
+
 import javax.xml.XMLConstants;
+import javax.xml.transform.stream.StreamSource;
+import javax.xml.validation.Schema;
+import javax.xml.validation.SchemaFactory;
+import org.springframework.validation.Validator;
 
 import com.sqshq.models.XMLFile;
+import org.xml.sax.SAXException;
+
+import java.io.File;
 
 
 public class XMLValidator implements Validator {
@@ -17,6 +25,7 @@ public class XMLValidator implements Validator {
         try {
 
             XMLFile file = (XMLFile) obj;
+            File xml = new File(file.getFile().getOriginalFilename());
 
             if (file.getFile().getSize() == 0) {
                 errors.rejectValue("file", "empty_file");
@@ -24,6 +33,16 @@ public class XMLValidator implements Validator {
                 errors.rejectValue("file", "wrong_type");
             }
 
+            SchemaFactory sf = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
+            ClassPathResource xsd = new ClassPathResource("/xsd/customers.xsd");
+
+            Schema schema = sf.newSchema(xsd.getFile());
+
+            javax.xml.validation.Validator validator = schema.newValidator();
+            validator.validate(new StreamSource(xml));
+
+        } catch (SAXException e) {
+            errors.rejectValue("file", "wrong_xml");
         } catch (Exception e) {
             errors.rejectValue("file", "smth_wrong");
         }
