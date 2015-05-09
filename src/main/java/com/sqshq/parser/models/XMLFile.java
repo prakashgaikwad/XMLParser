@@ -1,4 +1,4 @@
-package com.sqshq.models;
+package com.sqshq.parser.models;
 
 import org.springframework.web.multipart.MultipartFile;
 

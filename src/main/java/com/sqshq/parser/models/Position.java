@@ -1,5 +1,5 @@
 
-package com.sqshq.models;
+package com.sqshq.parser.models;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;

@@ -1,7 +1,7 @@
 
-package com.sqshq.models;
+package com.sqshq.parser.models;
 
-import com.sqshq.models.lists.Orders;
+import com.sqshq.parser.models.lists.Orders;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;

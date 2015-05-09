@@ -1,9 +1,9 @@
-package com.sqshq.service;
+package com.sqshq.parser.service;
 
-import com.sqshq.models.Customer;
-import com.sqshq.models.Order;
-import com.sqshq.models.lists.Customers;
-import com.sqshq.models.XMLFile;
+import com.sqshq.parser.models.Customer;
+import com.sqshq.parser.models.Order;
+import com.sqshq.parser.models.lists.Customers;
+import com.sqshq.parser.models.XMLFile;
 
 import org.xml.sax.SAXException;
 
@@ -61,7 +61,6 @@ public class XMLProcessor {
         }
 
         this.averageOrderAmount = totalAmount.divide(new BigDecimal(totalOrders),1, BigDecimal.ROUND_HALF_UP);
-
     }
 
     public void selectCustomers(BigDecimal minTotalAmount) {

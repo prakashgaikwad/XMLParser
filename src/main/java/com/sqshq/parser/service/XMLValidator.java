@@ -1,5 +1,6 @@
-package com.sqshq.service;
+package com.sqshq.parser.service;
 
+import com.sqshq.parser.models.XMLFile;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.validation.Errors;
 
@@ -9,7 +10,6 @@ import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
 import org.springframework.validation.Validator;
 
-import com.sqshq.models.XMLFile;
 import org.xml.sax.SAXException;
 
 import java.io.File;

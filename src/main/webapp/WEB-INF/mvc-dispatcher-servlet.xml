@@ -9,13 +9,13 @@
         http://www.springframework.org/schema/mvc
         http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
-    <context:component-scan base-package="com.sqshq"/>
+    <context:component-scan base-package="com.sqshq.parser"/>
 
     <mvc:annotation-driven/>
     <mvc:resources mapping="/assets/**" location="/WEB-INF/assets/" />
 
     <bean id="fileValidator"
-          class="com.sqshq.service.XMLValidator" />
+          class="com.sqshq.parser.service.XMLValidator" />
 
     <bean id="multipartResolver"
           class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />

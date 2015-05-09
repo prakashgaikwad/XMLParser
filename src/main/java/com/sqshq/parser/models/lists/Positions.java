@@ -1,7 +1,7 @@
 
-package com.sqshq.models.lists;
+package com.sqshq.parser.models.lists;
 
-import com.sqshq.models.Position;
+import com.sqshq.parser.models.Position;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;

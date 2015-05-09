@@ -1,6 +1,8 @@
-package com.sqshq.controllers;
+package com.sqshq.parser.controllers;
 
-import com.sqshq.service.XMLProcessor;
+import com.sqshq.parser.models.XMLFile;
+import com.sqshq.parser.service.XMLProcessor;
+import com.sqshq.parser.service.XMLValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -9,8 +11,6 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
-import com.sqshq.models.XMLFile;
-import com.sqshq.service.XMLValidator;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 

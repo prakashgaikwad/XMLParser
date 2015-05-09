@@ -1,7 +1,7 @@
 
-package com.sqshq.models.lists;
+package com.sqshq.parser.models.lists;
 
-import com.sqshq.models.Customer;
+import com.sqshq.parser.models.Customer;
 
 import java.util.ArrayList;
 import java.util.List;
