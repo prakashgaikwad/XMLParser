@@ -26,6 +26,7 @@ public class XMLValidator implements Validator {
 
             XMLFile file = (XMLFile) obj;
             File xml = new File(file.getFile().getOriginalFilename());
+            file.getFile().transferTo(xml);
 
             if (file.getFile().getSize() == 0) {
                 errors.rejectValue("file", "empty_file");
