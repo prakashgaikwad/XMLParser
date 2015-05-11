@@ -25,8 +25,6 @@ public class XMLValidator implements Validator {
         try {
 
             XMLFile file = (XMLFile) obj;
-            File xml = new File(file.getFile().getOriginalFilename());
-            file.getFile().transferTo(xml);
 
             if (file.getFile().getSize() == 0) {
                 errors.rejectValue("file", "empty_file");
@@ -40,7 +38,7 @@ public class XMLValidator implements Validator {
             Schema schema = sf.newSchema(xsd.getFile());
 
             javax.xml.validation.Validator validator = schema.newValidator();
-            validator.validate(new StreamSource(xml));
+            validator.validate(new StreamSource(file.getFile().getInputStream()));
 
         } catch (SAXException e) {
             errors.rejectValue("file", "wrong_xml");
