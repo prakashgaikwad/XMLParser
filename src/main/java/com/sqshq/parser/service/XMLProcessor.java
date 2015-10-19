@@ -18,12 +18,12 @@ public class XMLProcessor {
     private Customers customers;
     private Customer maxTotalOrdersAmountCustomer;
 
-    private List<Customer> selectedCustomers    = new ArrayList<Customer>();
+    private List<Customer> selectedCustomers = new ArrayList<Customer>();
 
-    private BigDecimal totalAmount              = new BigDecimal(0);
-    private BigDecimal maxOrderAmount           = new BigDecimal(0);
-    private BigDecimal minOrderAmount           = new BigDecimal(0);
-    private BigDecimal averageOrderAmount       = new BigDecimal(0);
+    private BigDecimal totalAmount = new BigDecimal(0);
+    private BigDecimal maxOrderAmount = new BigDecimal(0);
+    private BigDecimal minOrderAmount = new BigDecimal(0);
+    private BigDecimal averageOrderAmount = new BigDecimal(0);
 
     private long totalOrders;
 
